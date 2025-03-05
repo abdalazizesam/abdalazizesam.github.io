@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0032)https://abdalazizesam.github.io/ -->
+<html lang="en" class="dark"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdalaziz Esam - Portfolio</title>
     <style>
@@ -16,42 +16,33 @@
             box-sizing: border-box;
         }
 
-        /* Dark & Light Mode Colors with Gradients */
+        /* Dark Mode Specific Styling */
         html.dark {
-            --bg-primary: #0F172A;
-            --bg-secondary: #1E293B;
-            --text-primary: #F8FAFC;
-            --text-secondary: #94A3B8;
-            --accent-primary: #38BDF8;
-            --accent-secondary: #7C3AED;
-            --border-color: #334155;
+            --bg-primary: #121212;
+            --bg-secondary: #1E1E1E;
+            --text-primary: #E0E0E0;
+            --text-secondary: #B0B0B0;
+            --accent-primary: #4ECDC4;
+            --accent-secondary: #45B7D1;
+            --border-color: #2C2C2C;
         }
 
         html {
-            --bg-primary: #F8FAFC;
-            --bg-secondary: #E2E8F0;
-            --text-primary: #1E293B;
-            --text-secondary: #64748B;
-            --accent-primary: #2563EB;
-            --accent-secondary: #16A34A;
-            --border-color: #CBD5E1;
-            transition: background-color 0.5s ease, color 0.5s ease;
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F4F4F4;
+            --text-primary: #333333;
+            --text-secondary: #666666;
+            --accent-primary: #3498DB;
+            --accent-secondary: #2ECC71;
+            --border-color: #E0E0E0;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             background-color: var(--bg-primary);
             color: var(--text-primary);
             line-height: 1.6;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            text-align: center;
-            padding: 20px;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         /* Theme Toggle */
@@ -69,27 +60,37 @@
             justify-content: center;
             cursor: pointer;
             z-index: 1000;
-            transition: transform 0.3s ease, background-color 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .theme-toggle:hover {
-            transform: rotate(180deg) scale(1.1);
+            transform: rotate(180deg);
         }
 
-        .theme-toggle::before {
-            content: '☀️';
-            font-size: 20px;
+        /* Container */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        html.dark .theme-toggle::before {
-            content: '🌙';
+        /* Header Section */
+        .header {
+            display: flex;
+            align-items: center;
+            min-height: 100vh;
+            gap: 50px;
+            background-color: var(--bg-primary);
+            padding: 50px 0;
         }
 
-        /* Floating Animation for Profile Image */
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-            100% { transform: translateY(0px); }
+        .header-content {
+            flex: 1;
+        }
+
+        .header-image {
+            flex: 0 0 400px;
+            position: relative;
         }
 
         .header-image img {
@@ -98,7 +99,6 @@
             object-fit: cover;
             filter: grayscale(20%);
             transition: transform 0.3s ease, filter 0.3s ease;
-            animation: float 4s ease-in-out infinite;
         }
 
         .header-image img:hover {
@@ -106,13 +106,20 @@
             filter: grayscale(0%);
         }
 
-        /* Gradient Animation for Buttons */
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        h1 {
+            font-size: 4rem;
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+            line-height: 1.2;
         }
 
+        .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-secondary);
+            margin-bottom: 30px;
+        }
+
+        /* Buttons */
         .btn {
             display: inline-block;
             padding: 12px 25px;
@@ -121,38 +128,193 @@
             font-weight: 600;
             transition: all 0.3s ease;
             margin-right: 15px;
-            cursor: pointer;
         }
 
         .btn-primary {
-            background: linear-gradient(45deg, var(--accent-primary), var(--accent-secondary));
-            background-size: 200% 200%;
-            animation: gradientShift 3s infinite alternate ease-in-out;
+            background-color: var(--accent-primary);
             color: var(--bg-primary);
+        }
+
+        .btn-secondary {
+            border: 2px solid var(--accent-primary);
+            color: var(--accent-primary);
         }
 
         .btn:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            filter: brightness(1.2);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Skills Section */
+        .skills {
+            background-color: var(--bg-secondary);
+            padding: 100px 0;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .skill-card {
+            background-color: var(--bg-primary);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .skill-card h3 {
+            color: var(--accent-primary);
+            margin-bottom: 15px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background-color: var(--bg-primary);
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .project-card {
+            background-color: var(--bg-secondary);
+            border-radius: 15px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+
+        .project-card:hover {
+            transform: scale(1.05);
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .project-content {
+            padding: 25px;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: var(--accent-primary);
+            color: var(--bg-primary);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .contact-links a {
+            color: var(--bg-primary);
+            text-decoration: none;
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+
+        .contact-links a:hover {
+            transform: scale(1.2);
         }
     </style>
 </head>
 <body>
-    <button class="theme-toggle" aria-label="Toggle Theme"></button>
+    <button class="theme-toggle" aria-label="Toggle Theme">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5"></circle>
+            <path d="M12 1v2M12 21v2M4.2 4.2l1.4 1.4M18.4 18.4l1.4 1.4M1 12h2M21 12h2M4.2 19.8l1.4-1.4M18.4 5.6l1.4-1.4"></path>
+        </svg>
+    </button>
 
     <div class="container">
         <section class="header">
             <div class="header-content">
                 <h1>Abdalaziz Esam</h1>
-                <p class="subtitle">Full Stack Developer & Graphic Designer</p>
+                <p class="subtitle">Full Stack Developer &amp; Graphic Designer</p>
                 <div>
-                    <a href="#projects" class="btn btn-primary">🚀 View Projects</a>
-                    <a href="#contact" class="btn btn-secondary">📩 Contact Me</a>
+                    <a href="https://abdalazizesam.github.io/#projects" class="btn btn-primary">View Projects</a>
+                    <a href="https://abdalazizesam.github.io/#contact" class="btn btn-secondary">Contact Me</a>
                 </div>
             </div>
             <div class="header-image">
                 <img src="https://via.placeholder.com/400x500" alt="Abdalaziz Esam">
+            </div>
+        </section>
+
+        <section class="skills">
+            <div class="container">
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>Web Development</h3>
+                        <p>Creating responsive and interactive web applications using modern technologies.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Graphic Design</h3>
+                        <p>Designing visually stunning graphics and user interfaces with creative flair.</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Full Stack Solutions</h3>
+                        <p>Developing end-to-end web applications with robust backend and frontend technologies.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="projects" id="projects">
+            <div class="container">
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 1">
+                        <div class="project-content">
+                            <h3>Web Application</h3>
+                            <p>A comprehensive web solution demonstrating full-stack development skills.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 2">
+                        <div class="project-content">
+                            <h3>Graphic Design Project</h3>
+                            <p>Creative design work showcasing visual communication expertise.</p>
+                        </div>
+                    </div>
+                    <div class="project-card">
+                        <img src="https://via.placeholder.com/400x250" alt="Project 3">
+                        <div class="project-content">
+                            <h3>Mobile Application</h3>
+                            <p>An innovative mobile app demonstrating cross-platform development skills.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="container">
+                <h2>Let's Connect</h2>
+                <div class="contact-links">
+                    <a href="https://abdalazizesam.github.io/#">LinkedIn</a>
+                    <a href="https://abdalazizesam.github.io/#">GitHub</a>
+                    <a href="https://abdalazizesam.github.io/#">Email</a>
+                </div>
             </div>
         </section>
     </div>
@@ -163,8 +325,8 @@
 
         // Initialize theme
         const getPreferredTheme = () => {
-            return localStorage.getItem('theme') ||
-                (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+            if (localStorage.getItem('theme')) return localStorage.getItem('theme');
+            return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
         };
 
         const setTheme = (theme) => {
@@ -178,7 +340,8 @@
 
         // Theme toggle event
         themeToggle.addEventListener('click', () => {
-            const newTheme = htmlElement.classList.contains('dark') ? 'light' : 'dark';
+            const currentTheme = htmlElement.classList.contains('dark') ? 'dark' : 'light';
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
             setTheme(newTheme);
         });
 
@@ -189,5 +352,6 @@
             }
         });
     </script>
-</body>
-</html>
+
+
+</body></html>
