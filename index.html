@@ -1,78 +1,21 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdalaziz Esam</title>
     <style>
-        :root {
-            --background: #0f172a;
-            --background-secondary: #1e293b;
-            --text-primary: #f8fafc;
-            --text-secondary: #94a3b8;
-            --accent: #38bdf8;
-            --accent-secondary: #3b82f6;
-            --card-bg: #1e293b;
-            --nav-bg: rgba(15, 23, 42, 0.8);
-        }
-        
-        [data-theme="light"] {
-            --background: #f8fafc;
-            --background-secondary: #e2e8f0;
-            --text-primary: #0f172a;
-            --text-secondary: #475569;
-            --accent: #0284c7;
-            --accent-secondary: #2563eb;
-            --card-bg: #ffffff;
-            --nav-bg: rgba(248, 250, 252, 0.8);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            transition: color 0.3s ease, background-color 0.3s ease;
-            cursor: none;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
         body {
-            background-color: var(--background);
-            color: var(--text-primary);
+            background-color: #0f172a;
+            color: #f8fafc;
             overflow-x: hidden;
-            line-height: 1.6;
-        }
-        
-        /* Custom cursor styles */
-        .cursor-dot,
-        .cursor-outline {
-            pointer-events: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            transform: translate(-50%, -50%);
-            border-radius: 50%;
-            z-index: 9999;
-            transition: opacity 0.3s ease;
-        }
-        
-        .cursor-dot {
-            width: 8px;
-            height: 8px;
-            background-color: var(--accent);
-        }
-        
-        .cursor-outline {
-            width: 40px;
-            height: 40px;
-            border: 2px solid var(--accent);
-            transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, border 0.3s ease;
-        }
-        
-        .cursor-hover {
-            transform: translate(-50%, -50%) scale(1.5);
-            background-color: rgba(56, 189, 248, 0.1);
-            border: 1px solid var(--accent);
         }
         
         header {
@@ -82,9 +25,6 @@
             justify-content: center;
             padding: 0 10%;
             position: relative;
-            background-image: 
-                radial-gradient(circle at 20% 30%, rgba(56, 189, 248, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 80% 70%, rgba(59, 130, 246, 0.15) 0%, transparent 40%);
         }
         
         nav {
@@ -97,126 +37,60 @@
             align-items: center;
             z-index: 100;
             backdrop-filter: blur(10px);
-            background-color: var(--nav-bg);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            max-width: 1400px;
-            margin: 0 auto;
         }
         
         .logo {
             font-size: 24px;
-            font-weight: 800;
-            color: var(--accent);
-            letter-spacing: -1px;
+            font-weight: bold;
+            color: #38bdf8;
         }
         
         .nav-links {
             display: flex;
             gap: 30px;
-            align-items: center;
         }
         
         .nav-links a {
-            color: var(--text-primary);
+            color: #f8fafc;
             text-decoration: none;
             font-weight: 500;
             transition: color 0.3s;
-            position: relative;
-        }
-        
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent);
-            transition: width 0.3s;
         }
         
         .nav-links a:hover {
-            color: var(--accent);
-        }
-        
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-        
-        .theme-toggle {
-            background: none;
-            border: none;
-            cursor: none;
-            color: var(--text-primary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 8px;
-            border-radius: 50%;
-            background-color: rgba(56, 189, 248, 0.1);
-            margin-left: 20px;
-        }
-        
-        .theme-toggle:hover {
-            background-color: rgba(56, 189, 248, 0.2);
+            color: #38bdf8;
         }
         
         .hero {
             max-width: 800px;
-            z-index: 1;
         }
         
         h1 {
-            font-size: 80px;
+            font-size: 72px;
             margin-bottom: 20px;
             line-height: 1.1;
-            font-weight: 800;
-            letter-spacing: -2px;
         }
         
         h1 span {
-            color: var(--accent);
-            position: relative;
-            display: inline-block;
-        }
-        
-        h1 span::after {
-            content: '';
-            position: absolute;
-            height: 12px;
-            width: 100%;
-            bottom: 15px;
-            left: 0;
-            background-color: rgba(56, 189, 248, 0.3);
-            z-index: -1;
+            color: #38bdf8;
         }
         
         .subtitle {
-            font-size: 22px;
-            color: var(--text-secondary);
+            font-size: 24px;
+            color: #94a3b8;
             margin-bottom: 40px;
-            max-width: 600px;
         }
         
         .cta-button {
             display: inline-block;
-            padding: 16px 32px;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            border-radius: 8px;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #38bdf8, #3b82f6);
+            border-radius: 30px;
             text-decoration: none;
             color: white;
-            font-weight: 600;
+            font-weight: bold;
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
-            border: none;
-            cursor: none;
         }
         
         .cta-button:hover {
@@ -225,81 +99,49 @@
         }
         
         section {
-            padding: 120px 10%;
-            max-width: 1400px;
-            margin: 0 auto;
+            padding: 100px 10%;
         }
         
-        .section-title {
+        h2 {
             font-size: 48px;
-            margin-bottom: 80px;
+            margin-bottom: 60px;
             text-align: center;
-            font-weight: 800;
-            letter-spacing: -1px;
-            position: relative;
-            display: inline-block;
-            left: 50%;
-            transform: translateX(-50%);
-        }
-        
-        .section-title::after {
-            content: '';
-            position: absolute;
-            height: 8px;
-            width: 60px;
-            bottom: -15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: var(--accent);
-            border-radius: 4px;
         }
         
         .projects-container {
             display: flex;
             flex-direction: column;
-            gap: 120px;
+            gap: 100px;
         }
         
         .project {
             display: flex;
             align-items: center;
-            gap: 80px;
+            gap: 60px;
             opacity: 0;
-            transform: translateY(50px);
+            transform: translateX(-100px);
             transition: opacity 0.8s, transform 0.8s;
         }
         
         .project.visible {
             opacity: 1;
-            transform: translateY(0);
+            transform: translateX(0);
         }
         
         .project:nth-child(even) {
             flex-direction: row-reverse;
+            transform: translateX(100px);
+        }
+        
+        .project:nth-child(even).visible {
+            transform: translateX(0);
         }
         
         .project-image {
             flex: 1;
             overflow: hidden;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        
-        .project-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(45deg, var(--accent) 0%, transparent 100%);
-            opacity: 0.2;
-            transition: opacity 0.5s;
-        }
-        
-        .project:hover .project-image::before {
-            opacity: 0.4;
+            border-radius: 15px;
+            box-shadow: 0 20px 30px rgba(0, 0, 0, 0.3);
         }
         
         .project-image img {
@@ -307,7 +149,6 @@
             height: auto;
             display: block;
             transition: transform 0.5s;
-            object-fit: cover;
         }
         
         .project:hover .project-image img {
@@ -321,32 +162,29 @@
         .project-title {
             font-size: 36px;
             margin-bottom: 20px;
-            color: var(--accent);
-            font-weight: 700;
-            letter-spacing: -0.5px;
+            color: #38bdf8;
         }
         
         .project-description {
             font-size: 18px;
-            color: var(--text-secondary);
+            color: #94a3b8;
             margin-bottom: 30px;
-            line-height: 1.8;
+            line-height: 1.6;
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
-            gap: 12px;
+            gap: 10px;
             margin-bottom: 30px;
         }
         
         .tag {
-            padding: 8px 16px;
+            padding: 8px 15px;
             background-color: rgba(56, 189, 248, 0.1);
-            border-radius: 8px;
-            color: var(--accent);
+            border-radius: 20px;
+            color: #38bdf8;
             font-size: 14px;
-            font-weight: 500;
         }
         
         .project-links {
@@ -355,325 +193,102 @@
         }
         
         .project-link {
-            padding: 12px 24px;
-            border: 2px solid var(--accent);
-            border-radius: 8px;
-            color: var(--accent);
+            padding: 10px 20px;
+            border: 2px solid #38bdf8;
+            border-radius: 25px;
+            color: #38bdf8;
             text-decoration: none;
-            font-weight: 500;
             transition: background-color 0.3s, color 0.3s;
         }
         
         .project-link:hover {
-            background-color: var(--accent);
-            color: white;
-        }
-        
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background-color: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-        }
-        
-        .form-group {
-            margin-bottom: 24px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-        }
-        
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px 16px;
-            border: 1px solid rgba(148, 163, 184, 0.2);
-            border-radius: 8px;
-            background-color: var(--background);
-            color: var(--text-primary);
-            font-size: 16px;
-        }
-        
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
+            background-color: #38bdf8;
+            color: #0f172a;
         }
         
         footer {
-            padding: 80px 10% 40px;
+            padding: 60px 10%;
             text-align: center;
-            background-color: var(--background-secondary);
+            background-color: #1e293b;
         }
         
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 24px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-bottom: 30px;
         }
         
         .social-link {
             width: 50px;
             height: 50px;
             border-radius: 50%;
-            background-color: var(--accent);
+            background-color: #38bdf8;
             display: flex;
             align-items: center;
             justify-content: center;
-            color: white;
+            color: #0f172a;
             text-decoration: none;
-            transition: transform 0.3s, background-color 0.3s;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .social-link svg {
-            width: 24px;
-            height: 24px;
-            fill: white;
             transition: transform 0.3s;
         }
         
         .social-link:hover {
             transform: translateY(-5px);
-            background-color: var(--accent-secondary);
-        }
-        
-        .social-link:hover svg {
-            transform: scale(1.2);
-        }
-        
-        .social-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-        
-        .social-link:hover::before {
-            opacity: 1;
         }
         
         .copyright {
-            color: var(--text-secondary);
-            margin-top: 20px;
-        }
-        
-        /* Animated background */
-        .bg-animation {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 0;
-            overflow: hidden;
-        }
-        
-        .bg-circle {
-            position: absolute;
-            border-radius: 50%;
-            background: linear-gradient(90deg, var(--accent), var(--accent-secondary));
-            opacity: 0.05;
-            filter: blur(40px);
-        }
-        
-        /* Grid layout for contact section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-        
-        .contact-info {
-            text-align: left;
-        }
-        
-        .contact-heading {
-            margin-bottom: 30px;
-            font-size: 36px;
-            color: var(--accent);
-        }
-        
-        .contact-text {
-            color: var(--text-secondary);
-            margin-bottom: 40px;
-            line-height: 1.8;
-        }
-        
-        .contact-method {
-            display: flex;
-            align-items: center;
-            margin-bottom: 20px;
-            color: var(--text-primary);
-        }
-        
-        .contact-icon {
-            width: 24px;
-            height: 24px;
-            margin-right: 15px;
-            color: var(--accent);
-        }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: var(--accent);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: none;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            opacity: 0;
-            transition: opacity 0.3s, transform 0.3s;
-            transform: translateY(20px);
-            z-index: 99;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        
-        .back-to-top:hover {
-            transform: translateY(-5px);
+            color: #94a3b8;
         }
         
         /* Responsive */
-        @media (max-width: 1100px) {
-            h1 {
-                font-size: 60px;
-            }
-            
-            .section-title {
-                font-size: 40px;
-            }
-            
-            .contact-container {
-                grid-template-columns: 1fr;
-            }
-        }
-        
         @media (max-width: 992px) {
+            h1 {
+                font-size: 54px;
+            }
+            
             .project {
-                flex-direction: column !important;
+                flex-direction: column;
             }
             
-            .project-image {
-                width: 100%;
-            }
-            
-            * {
-                cursor: auto !important;
-            }
-            
-            .cursor-dot,
-            .cursor-outline {
-                display: none !important;
+            .project:nth-child(even) {
+                flex-direction: column;
             }
         }
         
         @media (max-width: 768px) {
             h1 {
-                font-size: 46px;
-            }
-            
-            .menu-toggle {
-                display: block;
+                font-size: 42px;
             }
             
             .nav-links {
                 display: none;
             }
-            
-            .nav-links.active {
-                display: flex;
-                flex-direction: column;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background-color: var(--background);
-                padding: 20px;
-                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            }
-        }
-        
-        /* Mouse trailer effect for interactive elements */
-        a:hover ~ .cursor-outline,
-        button:hover ~ .cursor-outline,
-        .project:hover ~ .cursor-outline,
-        .social-link:hover ~ .cursor-outline {
-            transform: translate(-50%, -50%) scale(1.5);
         }
     </style>
 </head>
 <body>
-    <!-- Custom cursor elements -->
-    <div class="cursor-dot"></div>
-    <div class="cursor-outline"></div>
-    
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">Abdalaziz Esam Portfolo</div>
-            <div class="nav-links">
-                <a href="#home">Home</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="moon">
-                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                    </svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="sun" style="display: none;">
-                        <circle cx="12" cy="12" r="5"></circle>
-                        <line x1="12" y1="1" x2="12" y2="3"></line>
-                        <line x1="12" y1="21" x2="12" y2="23"></line>
-                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                        <line x1="1" y1="12" x2="3" y2="12"></line>
-                        <line x1="21" y1="12" x2="23" y2="12"></line>
-                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                    </svg>
-                </button>
-            </div>
+        <div class="logo">Abdalaziz Esam Portfolio</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
         </div>
     </nav>
     
     <!-- Hero Section -->
     <header id="home">
-        <div class="bg-animation">
-            <div class="bg-circle" style="top: 20%; left: 10%; width: 300px; height: 300px;"></div>
-            <div class="bg-circle" style="bottom: 10%; right: 15%; width: 500px; height: 500px;"></div>
-        </div>
         <div class="hero">
-            <h1>Hi, I'm <span>Abdalaziz Esam</span></h1>
+            <h1>Hi, I'm <span>Your Name</span></h1>
             <p class="subtitle">Software Engineer, Web Developer & Graphic Designer passionate about crafting innovative, user-centered digital solutions that blend functionality with visual impact.</p>
-            <a href="#projects" class="cta-button">View My Projects</a>
+            <a href="#projects" class="cta-button">View My Work</a>
         </div>
     </header>
     
     <!-- Projects Section -->
     <section id="projects">
-        <h2 class="section-title">Featured Projects</h2>
+        <h2>My Projects</h2>
         
         <div class="projects-container">
             <!-- Project 1 -->
@@ -683,7 +298,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Project One</h3>
-                    <p class="project-description">A comprehensive web application that allows users to collaborate in real-time. Built with modern technologies and focuses on performance, accessibility, and user experience.</p>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula euismod, elementum nisi sed, varius nisl. Fusce at libero vitae ligula tempus tempor.</p>
                     <div class="project-tags">
                         <span class="tag">React</span>
                         <span class="tag">Node.js</span>
@@ -703,7 +318,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Project Two</h3>
-                    <p class="project-description">An e-commerce platform with advanced filtering, search functionality, and secure payment processing. Features a responsive design and intuitive admin dashboard.</p>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula euismod, elementum nisi sed, varius nisl. Fusce at libero vitae ligula tempus tempor.</p>
                     <div class="project-tags">
                         <span class="tag">Vue.js</span>
                         <span class="tag">Express</span>
@@ -723,7 +338,7 @@
                 </div>
                 <div class="project-info">
                     <h3 class="project-title">Project Three</h3>
-                    <p class="project-description">A mobile-first progressive web app that helps users track and analyze their fitness progress. Includes data visualization, goal setting, and social sharing features.</p>
+                    <p class="project-description">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis vel ligula euismod, elementum nisi sed, varius nisl. Fusce at libero vitae ligula tempus tempor.</p>
                     <div class="project-tags">
                         <span class="tag">Angular</span>
                         <span class="tag">Firebase</span>
@@ -738,72 +353,47 @@
         </div>
     </section>
     
-    <!-- Contact Section -->
-    <section id="contact">
-        <h2 class="section-title">Get In Touch</h2>
-        
-        <div class="contact-container">
-            <div class="contact-info">
-                <h3 class="contact-heading">Let's Create Something Amazing Together</h3>
-                <p class="contact-text">I'm always open to discussing new projects, creative ideas or opportunities to be part of your vision.</p>
-                
-                <div class="contact-method">
-                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                        <polyline points="22,6 12,13 2,6"></polyline>
-                    </svg>
-                    <span>your.email@example.com</span>
-                </div>
-                
-                <div class="contact-method">
-                    <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                        <circle cx="12" cy="10" r="3"></circle>
-                    </svg>
-                    <span>Your Location</span>
-                </div>
-            </div>
-            
-            <div class="contact-form">
-                <div class="form-group">
-                    <label for="name">Your Name</label>
-                    <input type="text" id="name" name="name" placeholder="Enter your name">
-                </div>
-                
-                <div class="form-group">
-                    <label for="email">Email Address</label>
-                    <input type="email" id="email" name="email" placeholder="Enter your email">
-                </div>
-                
-                <div class="form-group">
-                    <label for="message">Message</label>
-                    <textarea id="message" name="message" placeholder="Tell me about your project"></textarea>
-                </div>
-                
-                <button type="submit" class="cta-button">Send Message</button>
-            </div>
-        </div>
-    </section>
-    
-    <!-- Footer -->
-    <footer>
+    <!-- Footer with Contact -->
+    <footer id="contact">
         <div class="social-links">
-            <!-- GitHub -->
-            <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
-            </a>
-            
-            <!-- LinkedIn -->
-            <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
-                </svg>
-            </a>
-            
-            <!-- Twitter/X -->
-            <a href="#" class="social-link">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                </svg
+            <a href="#" class="social-link">GH</a>
+            <a href="#" class="social-link">LI</a>
+            <a href="#" class="social-link">TW</a>
+        </div>
+        <p class="copyright">© 2025 Your Name. All rights reserved.</p>
+    </footer>
+    
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+        
+        // Observe all projects
+        document.querySelectorAll('.project').forEach(project => {
+            observer.observe(project);
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
