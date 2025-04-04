@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Abdalaziz Esam</title>
     <style>
         :root {
             --background: #0f172a;
@@ -33,6 +33,7 @@
             box-sizing: border-box;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             transition: color 0.3s ease, background-color 0.3s ease;
+            cursor: none;
         }
         
         body {
@@ -40,6 +41,38 @@
             color: var(--text-primary);
             overflow-x: hidden;
             line-height: 1.6;
+        }
+        
+        /* Custom cursor styles */
+        .cursor-dot,
+        .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            transition: opacity 0.3s ease;
+        }
+        
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+        }
+        
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid var(--accent);
+            transition: transform 0.2s ease, width 0.3s ease, height 0.3s ease, border 0.3s ease;
+        }
+        
+        .cursor-hover {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(56, 189, 248, 0.1);
+            border: 1px solid var(--accent);
         }
         
         header {
@@ -120,7 +153,7 @@
         .theme-toggle {
             background: none;
             border: none;
-            cursor: pointer;
+            cursor: none;
             color: var(--text-primary);
             display: flex;
             align-items: center;
@@ -183,7 +216,7 @@
             box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
             transition: transform 0.3s, box-shadow 0.3s;
             border: none;
-            cursor: pointer;
+            cursor: none;
         }
         
         .cta-button:hover {
@@ -380,7 +413,7 @@
         .social-links {
             display: flex;
             justify-content: center;
-            gap: 30px;
+            gap: 24px;
             margin-bottom: 40px;
         }
         
@@ -395,13 +428,40 @@
             color: white;
             text-decoration: none;
             transition: transform 0.3s, background-color 0.3s;
-            font-size: 20px;
-            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .social-link svg {
+            width: 24px;
+            height: 24px;
+            fill: white;
+            transition: transform 0.3s;
         }
         
         .social-link:hover {
-            transform: translateY(-5px) rotate(10deg);
+            transform: translateY(-5px);
             background-color: var(--accent-secondary);
+        }
+        
+        .social-link:hover svg {
+            transform: scale(1.2);
+        }
+        
+        .social-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, transparent 70%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .social-link:hover::before {
+            opacity: 1;
         }
         
         .copyright {
@@ -479,7 +539,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            cursor: pointer;
+            cursor: none;
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             opacity: 0;
             transition: opacity 0.3s, transform 0.3s;
@@ -519,6 +579,15 @@
             .project-image {
                 width: 100%;
             }
+            
+            * {
+                cursor: auto !important;
+            }
+            
+            .cursor-dot,
+            .cursor-outline {
+                display: none !important;
+            }
         }
         
         @media (max-width: 768px) {
@@ -546,13 +615,25 @@
                 box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
             }
         }
+        
+        /* Mouse trailer effect for interactive elements */
+        a:hover ~ .cursor-outline,
+        button:hover ~ .cursor-outline,
+        .project:hover ~ .cursor-outline,
+        .social-link:hover ~ .cursor-outline {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
     </style>
 </head>
 <body>
+    <!-- Custom cursor elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">PORTFOLIO</div>
+            <div class="logo">Abdalaziz Esam Portfolo</div>
             <div class="nav-links">
                 <a href="#home">Home</a>
                 <a href="#projects">Projects</a>
@@ -584,8 +665,8 @@
             <div class="bg-circle" style="bottom: 10%; right: 15%; width: 500px; height: 500px;"></div>
         </div>
         <div class="hero">
-            <h1>Hi, I'm <span>Your Name</span></h1>
-            <p class="subtitle">Full-stack Developer & UI/UX Designer passionate about creating intuitive, innovative digital experiences that solve real problems.</p>
+            <h1>Hi, I'm <span>Abdalaziz Esam</span></h1>
+            <p class="subtitle">Software Engineer, Web Developer & Graphic Designer passionate about crafting innovative, user-centered digital solutions that blend functionality with visual impact.</p>
             <a href="#projects" class="cta-button">View My Projects</a>
         </div>
     </header>
@@ -707,102 +788,22 @@
     <!-- Footer -->
     <footer>
         <div class="social-links">
-            <a href="#" class="social-link">GH</a>
-            <a href="#" class="social-link">LI</a>
-            <a href="#" class="social-link">TW</a>
-        </div>
-        <p class="copyright">© 2025 Your Name. All rights reserved.</p>
-    </footer>
-    
-    <!-- Back to top button -->
-    <div class="back-to-top" id="back-to-top">
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-            <polyline points="18 15 12 9 6 15"></polyline>
-        </svg>
-    </div>
-    
-    <script>
-        // Theme toggling functionality
-        const themeToggle = document.getElementById('theme-toggle');
-        const moonIcon = document.querySelector('.moon');
-        const sunIcon = document.querySelector('.sun');
-        
-        // Check for saved theme preference or default to dark
-        const savedTheme = localStorage.getItem('theme') || 'dark';
-        document.documentElement.setAttribute('data-theme', savedTheme);
-        
-        // Update icon visibility based on current theme
-        if (savedTheme === 'light') {
-            moonIcon.style.display = 'none';
-            sunIcon.style.display = 'block';
-        }
-        
-        // Toggle theme
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = document.documentElement.getAttribute('data-theme');
-            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            <!-- GitHub -->
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+            </a>
             
-            document.documentElement.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
+            <!-- LinkedIn -->
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M4.98 3.5c0 1.381-1.11 2.5-2.48 2.5s-2.48-1.119-2.48-2.5c0-1.38 1.11-2.5 2.48-2.5s2.48 1.12 2.48 2.5zm.02 4.5h-5v16h5v-16zm7.982 0h-4.968v16h4.969v-8.399c0-4.67 6.029-5.052 6.029 0v8.399h4.988v-10.131c0-7.88-8.922-7.593-11.018-3.714v-2.155z"/>
+                </svg>
+            </a>
             
-            // Toggle icon visibility
-            if (newTheme === 'light') {
-                moonIcon.style.display = 'none';
-                sunIcon.style.display = 'block';
-            } else {
-                moonIcon.style.display = 'block';
-                sunIcon.style.display = 'none';
-            }
-        });
-        
-        // Intersection Observer for scroll animations
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                }
-            });
-        }, { threshold: 0.1 });
-        
-        // Observe all projects
-        document.querySelectorAll('.project').forEach(project => {
-            observer.observe(project);
-        });
-        
-        // Back to top button functionality
-        const backToTop = document.getElementById('back-to-top');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTop.classList.add('visible');
-            } else {
-                backToTop.classList.remove('visible');
-            }
-        });
-        
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-                
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop,
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
-    </script>
-</body>
-</html>
+            <!-- Twitter/X -->
+            <a href="#" class="social-link">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg
