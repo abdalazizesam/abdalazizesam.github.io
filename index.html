@@ -3,19 +3,61 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abdalaziz Esam - Software Engineer, Web Developer & Graphic Designer">
     <title>Abdalaziz Esam</title>
+    <!-- Add Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            cursor: none; /* Hide default cursor */
         }
         
         body {
             background-color: #0f172a;
             color: #f8fafc;
             overflow-x: hidden;
+        }
+        
+        /* Custom cursor styles */
+        .cursor-dot,
+        .cursor-outline {
+            pointer-events: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            transform: translate(-50%, -50%);
+            border-radius: 50%;
+            z-index: 9999;
+            transition: opacity 0.3s ease-in-out;
+        }
+        
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background-color: #38bdf8;
+        }
+        
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(56, 189, 248, 0.5);
+            transition: transform 0.15s ease-out, width 0.3s ease-out, height 0.3s ease-out;
+        }
+        
+        /* Interactive elements cursor effect */
+        a, .project, .cta-button, .social-link {
+            cursor: none;
+        }
+        
+        /* When hovering over interactive elements */
+        .cursor-hover .cursor-outline {
+            transform: translate(-50%, -50%) scale(1.5);
+            background-color: rgba(56, 189, 248, 0.1);
+            border-color: rgba(56, 189, 248, 0.3);
         }
         
         header {
@@ -229,11 +271,18 @@
             justify-content: center;
             color: #0f172a;
             text-decoration: none;
-            transition: transform 0.3s;
+            transition: transform 0.3s, background-color 0.3s;
         }
         
         .social-link:hover {
             transform: translateY(-5px);
+            background-color: #0f172a;
+            color: #38bdf8;
+            border: 2px solid #38bdf8;
+        }
+        
+        .social-link i {
+            font-size: 20px;
         }
         
         .copyright {
@@ -253,6 +302,19 @@
             .project:nth-child(even) {
                 flex-direction: column;
             }
+            
+            /* Hide custom cursor on smaller screens */
+            .cursor-dot, .cursor-outline {
+                display: none;
+            }
+            
+            * {
+                cursor: auto;
+            }
+            
+            a, button {
+                cursor: pointer;
+            }
         }
         
         @media (max-width: 768px) {
@@ -267,6 +329,10 @@
     </style>
 </head>
 <body>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
     <!-- Navigation -->
     <nav>
         <div class="logo">Abdalaziz Esam Portfolio</div>
@@ -280,7 +346,7 @@
     <!-- Hero Section -->
     <header id="home">
         <div class="hero">
-            <h1>Hi, I'm <span>Your Name</span></h1>
+            <h1>Hi, I'm <span>Abdalaziz Esam</span></h1>
             <p class="subtitle">Software Engineer, Web Developer & Graphic Designer passionate about crafting innovative, user-centered digital solutions that blend functionality with visual impact.</p>
             <a href="#projects" class="cta-button">View My Work</a>
         </div>
@@ -356,15 +422,68 @@
     <!-- Footer with Contact -->
     <footer id="contact">
         <div class="social-links">
-            <a href="#" class="social-link">GH</a>
-            <a href="#" class="social-link">LI</a>
-            <a href="#" class="social-link">TW</a>
+            <a href="#" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-link" aria-label="Dribbble">
+                <i class="fab fa-dribbble"></i>
+            </a>
         </div>
-        <p class="copyright">© 2025 Your Name. All rights reserved.</p>
+        <p class="copyright">© 2025 Abdalaziz Esam. All rights reserved.</p>
     </footer>
     
     <script>
-        // Intersection Observer for scroll animations
+        // Custom cursor functionality
+        const cursorDot = document.querySelector('.cursor-dot');
+        const cursorOutline = document.querySelector('.cursor-outline');
+        
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+            
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+            
+            // Add slight delay to outline for smoother effect
+            setTimeout(() => {
+                cursorOutline.style.left = `${posX}px`;
+                cursorOutline.style.top = `${posY}px`;
+            }, 50);
+        });
+        
+        // Add hover effect to interactive elements
+        const interactiveElements = document.querySelectorAll('a, .project, .cta-button, .social-link');
+        interactiveElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                document.body.classList.add('cursor-hover');
+            });
+            
+            el.addEventListener('mouseleave', () => {
+                document.body.classList.remove('cursor-hover');
+            });
+        });
+        
+        // Hide cursor when it leaves the window
+        document.addEventListener('mouseleave', () => {
+            cursorDot.style.opacity = '0';
+            cursorOutline.style.opacity = '0';
+        });
+        
+        document.addEventListener('mouseenter', () => {
+            cursorDot.style.opacity = '1';
+            cursorOutline.style.opacity = '1';
+        });
+        
+        // Interaction Observer for scroll animations
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
