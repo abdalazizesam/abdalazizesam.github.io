@@ -178,6 +178,8 @@ nav {
     max-width: 700px;
     width: 100%;
     padding-right: 50px; /* Space between text and image */
+    position: relative;
+    z-index: 2;
 }
 
 .profile-picture {
@@ -190,6 +192,7 @@ nav {
     box-shadow: var(--card-shadow);
     position: relative;
     margin-left: 50px; /* Push image further right */
+    z-index: 1;
 }
 
 .profile-picture img {
