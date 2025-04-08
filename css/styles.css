@@ -191,6 +191,23 @@ nav {
     position: relative;
     margin-left: 50px; /* Push image further right */
 }
+/* Floating animation */
+@keyframes float {
+    0% { transform: translateY(-50%) translateX(0); }
+    50% { transform: translateY(-50%) translateX(10px); }
+    100% { transform: translateY(-50%) translateX(0); }
+}
+
+.profile-picture {
+    animation: float 6s ease-in-out infinite;
+}
+
+@media (max-width: 992px) {
+    .profile-picture {
+        animation: float 6s ease-in-out infinite;
+        transform: none;
+    }
+}
 
 .profile-picture img {
     width: 100%;
