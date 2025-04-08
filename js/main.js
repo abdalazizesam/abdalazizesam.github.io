@@ -227,15 +227,24 @@ function initTypingEffect() {
         const originalText = subtitle.textContent;
         subtitle.textContent = '';
         
-        // Create a span for the typing cursor
+        // Create a container for the text and cursor
+        const container = document.createElement('span');
+        container.className = 'typing-container';
+        
+        // Create spans for the text and cursor
+        const textSpan = document.createElement('span');
         const cursor = document.createElement('span');
         cursor.className = 'typing-cursor';
-        subtitle.parentNode.insertBefore(cursor, subtitle.nextSibling);
+        
+        // Append elements to DOM
+        container.appendChild(textSpan);
+        container.appendChild(cursor);
+        subtitle.appendChild(container);
         
         let charIndex = 0;
         function typeText() {
             if (charIndex < originalText.length) {
-                subtitle.textContent += originalText.charAt(charIndex);
+                textSpan.textContent += originalText.charAt(charIndex);
                 charIndex++;
                 setTimeout(typeText, 30);
             }
