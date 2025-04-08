@@ -220,9 +220,6 @@ nav {
     color: var(--accent);
 }
 
-.mobile-theme-toggle {
-    margin-top: 20px;
-}
 
 /* Theme toggle styles */
 .theme-toggle {
