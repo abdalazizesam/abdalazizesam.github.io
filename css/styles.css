@@ -192,7 +192,6 @@ nav {
     border: 5px solid var(--accent);
     box-shadow: var(--card-shadow);
     position: relative;
-    margin-left: 50px; /* Push image further right */
     z-index: 1;
 }
 
