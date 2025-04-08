@@ -131,8 +131,6 @@ if (!isMobileDevice() && cursorDot && cursorOutline) {
     });
 }
 
-//
-/*
 // Interaction Observer for scroll animations
 const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
