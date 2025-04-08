@@ -191,11 +191,9 @@ nav {
     overflow: hidden;
     border: 5px solid var(--accent);
     box-shadow: var(--card-shadow);
-    /*position: relative;*/
+    position: relative;
     margin-left: 50px; /* Push image further right */
     z-index: 1;
-    position: absolute;
-    right: -100px; /* Extend beyond normal container */
 }
 
 .profile-picture img {
