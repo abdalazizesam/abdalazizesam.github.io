@@ -163,79 +163,67 @@ nav {
     font-size: 18px;
 }
 
-/* Profile Picture Styles */
+/* Hero Section Layout */
+.hero-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1400px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.hero-content {
+    max-width: 700px;
+    width: 100%;
+    padding-right: 50px; /* Space between text and image */
+}
+
 .profile-picture {
-    position: absolute;
-    right: 5%; /* Start with 5% from right */
-    top: 50%;
-    transform: translateY(-50%);
-    width: 350px; /* Slightly larger */
-    height: 350px;
+    width: 400px;
+    height: 400px;
+    min-width: 400px; /* Prevent shrinking */
     border-radius: 50%;
     overflow: hidden;
     border: 5px solid var(--accent);
     box-shadow: var(--card-shadow);
-    transition: all 0.5s ease;
-}
-
-/* For very large screens (1920px and up) */
-@media (min-width: 1920px) {
-    .profile-picture {
-        right: 15%; /* Move further right on large screens */
-        width: 400px;
-        height: 400px;
-    }
-}
-
-/* For medium-large screens */
-@media (min-width: 1600px) and (max-width: 1919px) {
-    .profile-picture {
-        right: 10%;
-    }
-}
-
-/* Adjust hero content */
-.hero {
-    max-width: 800px;
     position: relative;
-    padding-right: 400px; /* Increased space */
+    margin-left: 50px; /* Push image further right */
 }
 
-/* Responsive adjustments */
-@media (max-width: 1400px) {
+.profile-picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 1200px) {
+    .hero-container {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .hero-content {
+        padding-right: 0;
+        margin-bottom: 50px;
+        max-width: 100%;
+    }
+    
     .profile-picture {
+        margin-left: 0;
         width: 300px;
         height: 300px;
-        right: 5%;
-    }
-    .hero {
-        padding-right: 350px;
+        min-width: 300px;
     }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 768px) {
     .profile-picture {
         width: 250px;
         height: 250px;
-    }
-    .hero {
-        padding-right: 300px;
-    }
-}
-
-@media (max-width: 992px) {
-    .profile-picture {
-        position: relative;
-        right: auto;
-        top: auto;
-        transform: none;
-        margin: 0 auto 40px;
-        width: 200px;
-        height: 200px;
-    }
-    .hero {
-        padding-right: 0;
-        text-align: center;
+        min-width: 250px;
     }
 }
 
