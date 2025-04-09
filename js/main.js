@@ -281,11 +281,11 @@ function initProjectHoverEffects() {
         const y = e.clientY - rect.top;
         
         // Calculate rotation based on mouse position
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
+        const centerX = rect.width / 16;
+        const centerY = rect.height / 16;
         
-        const rotateX = (y - centerY) / 20;
-        const rotateY = (centerX - x) / 20;
+        const rotateX = (y - centerY) / 360;
+        const rotateY = (centerX - x) / 360;
         
         project.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
     }
