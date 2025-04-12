@@ -1,10 +1,6 @@
-// Main JavaScript for Abdalaziz Esam's Portfolio
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Add necessary CSS for animations and effects
     addAnimationStyles();
-    
-    // Initialize all components
     initThemeToggle();
     initMobileMenu();
     initCustomCursor();
@@ -15,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function() {
     initParticlesBackground();
 });
 
-// Add required CSS styles programmatically
 function addAnimationStyles() {
     const style = document.createElement('style');
     style.textContent = `
