@@ -171,7 +171,6 @@ const projectData = {
             "Watchlist and favorite management",
             "Detailed movie/TV show information (synopsis, cast, ratings)",
             "Intuitive user interface",
-            "Cross-platform compatibility (Android/iOS)",
             "Offline viewing capabilities (if content is downloaded)"
         ],
         github: "https://github.com/abdalazizesam/RealDeal",
