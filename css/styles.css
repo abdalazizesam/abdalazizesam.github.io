@@ -1,0 +1,1141 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    /* CSS Variables for theming */
+    --background-color: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%); /* Deep Space Dark */
+    --text-color: #ffffff;
+    --secondary-text-color: #a1a1aa;
+    --primary-gradient-start: #6366f1; /* Indigo */
+    --primary-gradient-end: #8b5cf6;   /* Violet */
+    --card-background: rgba(255, 255, 255, 0.08); /* More transparent for glassy */
+    --card-border: rgba(255, 255, 255, 0.15); /* Slightly stronger border for definition */
+    --form-input-bg: rgba(255, 255, 255, 0.12); /* More transparent input */
+    --form-input-border: rgba(255, 255, 255, 0.25); /* Clearer input border */
+    --navbar-bg: rgba(26, 26, 46, 0.5); /* Even MORE transparent for extreme glassy */
+    --modal-bg: rgba(26, 26, 46, 0.9); /* Slightly more transparent */
+    --shadow-color: rgba(0, 0, 0, 0.4); /* Stronger shadow for depth */
+    --tech-tag-bg: rgba(99, 102, 241, 0.25); /* Slightly more opaque */
+    --tech-tag-border: rgba(139, 92, 246, 0.4); /* Stronger border */
+    --logo-gradient-start: #6366f1;
+    --logo-gradient-end: #8b5cf6;
+    --profile-pic-border: rgba(255, 255, 255, 0.3); /* New: Border for profile pic */
+
+    font-family: 'Inter', sans-serif;
+    background: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* ADDED: To prevent horizontal scrolling on the body*/
+    transition: background 0.5s ease, color 0.5s ease; /* Smooth theme transition */
+}
+
+/* Cosmic Light Mode (Light Theme) - Enhanced Contrast with Blue/Purple */
+body.light-mode {
+    --background-color: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%); /* Softer light background */
+    --text-color: #212121; /* Darker text for better readability */
+    --secondary-text-color: #4a4a4a; /* Darker secondary text */
+    --primary-gradient-start: #3b82f6; /* Blue 500 */
+    --primary-gradient-end: #8b5cf6;   /* Violet 500 (from original dark mode) */
+    --card-background: rgba(255, 255, 255, 0.7); /* Less transparent for better contrast, still glassy */
+    --card-border: rgba(0, 0, 0, 0.1); /* Darker border in light mode */
+    --form-input-bg: rgba(240, 240, 240, 0.8); /* Lighter input background */
+    --form-input-border: rgba(150, 150, 150, 0.5); /* Clearer input border */
+    --navbar-bg: rgba(255, 255, 255, 0.75); /* Even MORE transparent for glassy light mode */
+    --modal-bg: rgba(255, 255, 255, 0.95); /* Nearly opaque white for modal */
+    --shadow-color: rgba(0, 0, 0, 0.2); /* Lighter shadows for light mode */
+    --tech-tag-bg: rgba(59, 130, 246, 0.2); /* Tech tag with new primary color */
+    --tech-tag-border: rgba(139, 92, 246, 0.35);
+    --logo-gradient-start: #2563eb; /* Darker blue for logo */
+    --logo-gradient-end: #8b5cf6;
+    --profile-pic-border: rgba(0, 0, 0, 0.2); /* New: Border for profile pic in light mode */
+}
+
+/* Custom Scrollbar - Enhanced for subtlety and design */
+::-webkit-scrollbar {
+    width: 10px; /* Wider for easier grabbing */
+    height: 10px; /* For horizontal scrollbars if they appear elsewhere */
+    visibility: hidden;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--navbar-bg); /* Use a more integrated background color */
+    border-radius: 5px; /* Slightly rounded tracks */
+    visibility: hidden;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border-radius: 225px; /* Rounded corners for the thumb */
+    border: 2px solid var(--navbar-bg); /* Add a border to make it appear thinner and match background */
+    transition: background 0.3s ease, border 0.3s ease;
+    visibility: hidden;
+
+    
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(45deg, var(--primary-gradient-end), var(--primary-gradient-start)); /* Invert gradient on hover */
+    border: 2px solid var(--modal-bg); /* Change border on hover for contrast */
+    visibility: hidden;
+}
+
+/* For Firefox (modern versions) */
+html {
+  scrollbar-width: thin; /* "auto" or "thin" */
+  scrollbar-color: var(--primary-gradient-end) var(--navbar-bg); /* thumb color track color */
+}
+
+
+/* Navigation - Enhanced Glass Effect */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    /* Enhanced blur and saturation for a more prominent glass effect */
+    background: rgba(26, 26, 46, 0.2); /* Even more transparent for deeper blend */
+    backdrop-filter: blur(25px) saturate(2.2); /* Increased blur and saturation */
+    -webkit-backdrop-filter: blur(25px) saturate(2.2);
+    padding: 1rem 0;
+    z-index: 1000;
+    transition: all 0.3s ease, background 0.5s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); /* Slightly stronger initial shadow for depth */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15); /* Slightly stronger border for definition */
+}
+
+/* Light mode navbar adjustments for border and shadow */
+body.light-mode .navbar {
+     background: rgba(255, 255, 255, 0.5); /* Slightly more transparent in light mode too */
+     border-bottom: 1px solid rgba(0, 0, 0, 0.12); /* Stronger border in light mode */
+     box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2); /* Stronger shadow in light mode */
+}
+
+.navbar.scrolled {
+    background: var(--modal-bg); /* Use modal background for scrolled state */
+    box-shadow: 0 10px 45px var(--shadow-color); /* Even stronger shadow on scroll */
+    border-bottom: 1px solid transparent; /* No border when scrolled */
+    backdrop-filter: blur(30px) saturate(2.5); /* Max blur when scrolled */
+    -webkit-backdrop-filter: blur(30px) saturate(2.5);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between; /* Distribute items with space between */
+    align-items: center; /* Vertically center all direct children */
+}
+
+.logo-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex; /* Make logo-link a flex container */
+    align-items: center; /* Vertically align image and text within logo-link */
+    gap: 0.7rem;
+    flex-shrink: 0; /* Prevent it from shrinking */
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--logo-gradient-start), var(--logo-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    display: flex; /* Keep display flex to align profile pic and name */
+    align-items: center; /* Ensure vertical centering of items within the logo flex container */
+    gap: 0.7rem;
+    cursor: pointer;
+    z-index: 1;
+    position: relative; /* Needed for pseudo-elements or complex animations */
+}
+
+/* New: Animated border for the profile picture */
+.profile-pic {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--profile-pic-border); /* Existing border */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); /* Existing shadow */
+    transition: transform 0.3s ease; /* Existing transition */
+    display: block;
+    position: relative; /* For pseudo-elements */
+    overflow: hidden; /* To keep the animated border contained */
+}
+
+/* Define a CSS custom property for the rotating gradient angle */
+@property --gradient-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
+
+/* Animation for the gradient border */
+@keyframes rotate-border {
+    to { --gradient-angle: 360deg; }
+}
+
+/* Apply an animated gradient border using pseudo-element */
+.profile-pic::before {
+    content: '';
+    position: absolute;
+    top: -3px; /* Adjust to control thickness */
+    left: -3px; /* Adjust to control thickness */
+    right: -3px; /* Adjust to control thickness */
+    bottom: -3px; /* Adjust to control thickness */
+    background: conic-gradient(
+        from var(--gradient-angle),
+        var(--primary-gradient-start),
+        var(--primary-gradient-end),
+        var(--primary-gradient-start) /* Repeat to ensure smooth loop */
+    );
+    border-radius: 50%;
+    z-index: -1; /* Place behind the image */
+    animation: rotate-border 3s linear infinite; /* Adjust duration and timing */
+    opacity: 0; /* Hidden by default */
+    transition: opacity 0.3s ease;
+}
+
+.profile-pic:hover::before {
+    opacity: 1; /* Show on hover */
+}
+
+/* Subtle pulse animation for the whole logo on hover */
+.logo:hover .profile-pic {
+    transform: scale(1.08); /* Slightly larger scale on hover */
+}
+
+.logo:hover {
+    animation: subtle-pulse 1.5s infinite alternate ease-in-out; /* Apply pulse to entire logo div */
+}
+
+@keyframes subtle-pulse {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.02); } /* A very subtle pulse */
+}
+
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    justify-content: center; /* Center nav links within their space */
+    margin: 0 auto; /* Auto margins will center it within available space */
+}
+
+.nav-links a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 0.5rem 0;
+}
+
+.nav-links a:hover {
+    color: var(--primary-gradient-end);
+}
+
+.nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 2px;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.nav-links a:hover::after {
+    width: 100%;
+}
+
+/* No specific .theme-toggle-desktop rule needed for positioning here as it's a direct flex item */
+
+/* Hero Section */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Changed to column to stack elements */
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    padding-bottom: 5rem;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="%23374151" stroke-width="0.5" opacity="0.15"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+    opacity: 0.4;
+}
+
+.hero-content {
+    text-align: center;
+    max-width: 800px;
+    padding: 0 2rem;
+    z-index: 2;
+    position: relative;
+    margin-bottom: 2.5rem; /* Space between text and button */
+}
+
+.hero-title {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--primary-gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--secondary-text-color);
+    animation: fadeInUp 1s ease-out 0.2s both; /* Initial fade in for the element itself */
+    opacity: 0; /* Hide initial text for typing effect */
+}
+
+.typing-text { /* Specific class for typing effect */
+    display: inline-block; /* Essential for cursor positioning */
+    position: relative;
+}
+
+.typing-text::after { /* Typing indicator */
+    content: '|';
+    display: inline-block;
+    animation: blink-caret 0.75s step-end infinite; /* Still step-end for sharp blink */
+    color: var(--primary-gradient-end); /* Cursor color */
+    margin-left: 2px; /* Small gap between text and cursor */
+    font-weight: 300; /* Make cursor subtle */
+    transition: opacity 0.3s ease; /* Smooth transition for hiding cursor */
+}
+
+.typing-completed .typing-text::after { /* Hide cursor when typing is complete */
+    content: ''; /* Remove content to hide the caret */
+    opacity: 0; /* Explicitly set opacity to 0 for a fade out */
+}
+
+@keyframes blink-caret {
+    from, to { opacity: 0; } /* Hide the caret */
+    50% { opacity: 1; } /* Show the caret */
+}
+
+
+.cta-button {
+    display: inline-block;
+    padding: 1.1rem 2.5rem;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1s ease-out 0.4s both;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.25);
+}
+
+.cta-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+.cta-button:hover::before {
+    left: 100%;
+}
+
+.cta-button:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 25px 50px rgba(99, 102, 241, 0.4);
+}
+
+/* Scroll Down Indicator */
+.scroll-down-indicator {
+    position: absolute;
+    bottom: 2.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary-gradient-end);
+    font-size: 2.2rem;
+    animation: bounce 2s infinite;
+    z-index: 2;
+    display: inline-block;
+    text-decoration: none;
+    padding: 0.5rem;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translate(-50%, 0);
+    }
+    40% {
+        transform: translate(-50%, -18px);
+    }
+    60% {
+        transform: translate(-50%, -10px);
+    }
+}
+
+/* Floating Elements */
+.floating-element {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.15;
+    filter: blur(8px);
+}
+
+.floating-element-1 {
+    top: 25%;
+    left: 12%;
+    width: 70px;
+    height: 70px;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    border-radius: 50%;
+    animation: float 6s ease-in-out infinite;
+}
+
+.floating-element-2 {
+    top: 65%;
+    right: 18%;
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(45deg, var(--primary-gradient-end), #ec4899);
+    border-radius: 25%;
+    animation: float 8s ease-in-out infinite reverse;
+}
+
+/* Section Styles */
+.section {
+    padding: 6rem 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+.section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 3.5rem;
+    background: linear-gradient(135deg, var(--text-color) 0%, var(--primary-gradient-end) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* About Section */
+.about-content {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.about-text {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--secondary-text-color);
+    line-height: 1.8;
+    margin-bottom: 2.5rem;
+}
+
+/* Skills Section */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.8rem;
+    margin-top: 3.5rem;
+}
+
+.skill-card {
+    background: var(--card-background);
+    padding: 2rem;
+    border-radius: 25px;
+    text-align: center;
+    backdrop-filter: blur(15px) saturate(1.5);
+    -webkit-backdrop-filter: blur(15px) saturate(1.5);
+    border: 1px solid var(--card-border);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.skill-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: 0 25px 50px var(--shadow-color);
+}
+body.light-mode .skill-card:hover {
+    background: rgba(0, 0, 0, 0.08);
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.18);
+}
+
+.skill-icon {
+    font-size: 3.5rem;
+    margin-bottom: 1.2rem;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.skill-name {
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+    color: var(--text-color);
+}
+
+.skill-description {
+    color: var(--secondary-text-color);
+    font-size: 0.95rem;
+}
+
+/* Projects Section */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3.5rem;
+}
+
+.project-card {
+    background: var(--card-background);
+    border-radius: 25px;
+    overflow: hidden;
+    backdrop-filter: blur(15px) saturate(1.5);
+    -webkit-backdrop-filter: blur(15px) saturate(1.5);
+    border: 1px solid var(--card-border);
+    transition: all 0.4s ease;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.project-card:hover {
+    transform: translateY(-12px) scale(1.02);
+    box-shadow: 0 35px 70px var(--shadow-color);
+}
+body.light-mode .project-card:hover {
+    box-shadow: 0 35px 70px rgba(0, 0, 0, 0.2);
+}
+
+.project-image {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.08);
+}
+
+/* REMOVED: .project-image::before styles that created the default darker overlay */
+/* KEPT (optional, as it won't do anything without the initial overlay): */
+/* .project-card:hover .project-image::before {
+    opacity: 0;
+} */
+
+
+.project-content {
+    padding: 2rem;
+}
+
+.project-title {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.project-description {
+    color: var(--secondary-text-color);
+    margin-bottom: 1.5rem;
+    line-height: 1.7;
+}
+
+.project-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+}
+
+.tech-tag {
+    background: var(--tech-tag-bg);
+    color: var(--primary-gradient-end);
+    padding: 0.3rem 0.8rem;
+    border-radius: 25px;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border: 1px solid var(--tech-tag-border);
+}
+
+.project-links {
+    display: flex;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--primary-gradient-end);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.project-link:hover {
+    color: var(--primary-gradient-start);
+    transform: translateX(6px);
+}
+
+/* Project Detail Modal */
+.project-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(20px) saturate(1.8);
+    -webkit-backdrop-filter: blur(20px) saturate(1.8);
+    z-index: 2000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.4s ease;
+    /* Removed overflow-x: hidden here as it's handled on body and modal-content */
+}
+
+.project-modal.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    background: var(--modal-bg);
+    border-radius: 25px;
+    padding: 3rem;
+    max-width: 900px;
+    max-height: 90vh;
+    overflow-y: auto;
+    overflow-x: hidden; /* Ensure horizontal scroll is hidden within the modal content */
+    margin: 2rem;
+    border: 1px solid var(--card-border);
+    transform: scale(0.85);
+    transition: transform 0.4s ease, background 0.5s ease;
+    position: relative;
+    box-shadow: 0 20px 40px var(--shadow-color);
+}
+
+.project-modal.active .modal-content {
+    transform: scale(1);
+}
+
+.modal-close {
+    position: absolute;
+    top: 1.2rem;
+    right: 1.2rem;
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 2.2rem;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.modal-close:hover {
+    color: var(--primary-gradient-end);
+    transform: rotate(90deg);
+}
+
+/* Contact Section */
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+}
+
+.contact-form {
+    background: var(--card-background);
+    padding: 2.5rem;
+    border-radius: 25px;
+    backdrop-filter: blur(15px) saturate(1.5);
+    -webkit-backdrop-filter: blur(15px) saturate(1.5);
+    border: 1px solid var(--card-border);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.6rem;
+    font-weight: 500;
+    color: var(--secondary-text-color);
+    font-size: 1rem;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 1.1rem;
+    background: var(--form-input-bg);
+    border: 1px solid var(--form-input-border);
+    border-radius: 12px;
+    color: var(--text-color);
+    font-family: inherit;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+body.light-mode .form-group input,
+body.light-mode .form-group textarea {
+     color: #333;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-gradient-end);
+    background: rgba(255, 255, 255, 0.18);
+    box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+}
+body.light-mode .form-group input:focus,
+body.light-mode .form-group textarea:focus {
+    background: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 1.1rem;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+}
+
+.submit-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px var(--shadow-color);
+}
+
+.social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.social-link {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+    color: var(--secondary-text-color);
+    text-decoration: none;
+    padding: 1.2rem;
+    background: var(--card-background);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    border: 1px solid var(--card-border);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    backdrop-filter: blur(10px) saturate(1.2);
+    -webkit-backdrop-filter: blur(10px) saturate(1.2);
+}
+
+.social-link:hover {
+    color: var(--primary-gradient-end);
+    background: rgba(255, 255, 255, 0.12);
+    transform: translateX(12px);
+}
+body.light-mode .social-link:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.social-icon {
+    font-size: 1.7rem;
+    width: 45px;
+    text-align: center;
+    background: linear-gradient(45deg, var(--primary-gradient-start), var(--primary-gradient-end));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* General Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
+}
+
+/* Scroll Animations */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile Menu */
+.mobile-menu-btn {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 7px;
+    z-index: 1001;
+    width: 32px;
+    height: 22px;
+    justify-content: center;
+}
+
+.mobile-menu-btn span {
+    width: 100%;
+    height: 4px;
+    background: var(--text-color);
+    border-radius: 2px;
+    transition: all 0.3s ease;
+    transform-origin: left;
+}
+
+/* Hamburger to X animation */
+.mobile-menu-btn.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, -3px);
+    width: 28px;
+}
+
+.mobile-menu-btn.active span:nth-child(2) {
+    opacity: 0;
+    transform: translateX(-15px);
+}
+
+.mobile-menu-btn.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, 3px);
+    width: 28px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    color: var(--text-color);
+    font-size: 1.5rem;
+    cursor: pointer;
+    transition: color 0.3s ease, transform 0.3s ease;
+    outline: none;
+    padding: 0.6rem;
+    border-radius: 50%;
+}
+
+.theme-toggle:hover {
+    color: var(--primary-gradient-end);
+    transform: scale(1.15);
+}
+
+.theme-toggle i {
+    transition: transform 0.5s ease;
+}
+
+.theme-toggle.sun i {
+    transform: rotate(360deg);
+}
+
+.theme-toggle-desktop {
+    display: block; /* Shown by default for desktop */
+    margin-left: auto; /* Push it to the right, next to nav-links */
+}
+.theme-toggle-mobile {
+    display: none; /* Hidden by default */
+    margin-left: auto; /* For mobile, push it to the right */
+    order: 2; /* Put it before the mobile menu button on mobile */
+}
+
+
+/* Responsive Design - Mobile Awesomeness */
+@media (max-width: 768px) {
+    .nav-container {
+        justify-content: space-between;
+        /* Position static to allow the full-screen menu to overlay correctly */
+        position: static;
+    }
+
+    .logo-link {
+        position: static;
+        left: auto;
+    }
+
+    .logo {
+        position: static;
+        left: auto;
+        flex-grow: 0;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        transform: translateX(100%);
+        background: rgba(26, 26, 46, 0.7); /* Approximately 70% opaque (30% transparent) for dark mode */
+        backdrop-filter: blur(50px) saturate(2.5); /* Significantly increased blur radius */
+        -webkit-backdrop-filter: blur(50px) saturate(2.5);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 3rem;
+        transition: transform 0.5s ease-out;
+        box-shadow: -20px 0 60px var(--shadow-color);
+        padding-top: 0;
+        padding-bottom: 0;
+        flex-grow: 1;
+        margin: 0;
+        border-left: none;
+        border-right: none;
+        z-index: 999;
+        overflow-y: auto;
+    }
+
+    body.light-mode .nav-links {
+        background: rgba(255, 255, 255, 0.7); /* Approximately 70% opaque (30% transparent) for light mode */
+        box-shadow: -20px 0 60px rgba(0, 0, 0, 0.25);
+    }
+
+    .nav-links.active {
+        transform: translateX(0);
+    }
+
+    .nav-links li {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    }
+    .nav-links.active li {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    /* Staggered animation for list items */
+    .nav-links.active li:nth-child(1) { transition-delay: 0.15s; }
+    .nav-links.active li:nth-child(2) { transition-delay: 0.25s; }
+    .nav-links.active li:nth-child(3) { transition-delay: 0.35s; }
+    .nav-links.active li:nth-child(4) { transition-delay: 0.45s; }
+    .nav-links.active li:nth-child(5) { transition-delay: 0.55s; }
+
+    /* For mobile, the desktop toggle is hidden, mobile toggle is shown */
+    .theme-toggle-desktop {
+        display: none;
+    }
+    .theme-toggle-mobile {
+        display: block;
+    }
+
+    .mobile-menu-btn {
+        display: flex;
+        position: static;
+        right: auto;
+        margin-left: 1rem;
+        order: 3;
+        z-index: 1001;
+    }
+
+    .hero-title {
+        font-size: clamp(2.2rem, 8vw, 3rem);
+    }
+
+    .hero-subtitle {
+        font-size: clamp(1rem, 4vw, 1.2rem);
+    }
+
+    .cta-button {
+        padding: 0.9rem 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    .skills-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .section {
+        padding: 4rem 0;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
+    .modal-content {
+        margin: 1.5rem;
+        padding: 2.5rem;
+    }
+
+    .project-image {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 1.2rem;
+    }
+
+    .logo {
+        font-size: 1.4rem;
+    }
+
+    .profile-pic {
+        width: 35px;
+        height: 35px;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+
+    .cta-button {
+        padding: 0.9rem 2rem;
+    }
+
+    .section-title {
+        font-size: 2rem;
+        margin-bottom: 2.5rem;
+    }
+
+    .about-text {
+        font-size: 0.95rem;
+    }
+
+    .skill-card {
+        padding: 1.5rem;
+    }
+
+    .skill-icon {
+        font-size: 3rem;
+    }
+
+    .skill-name {
+        font-size: 1.2rem;
+    }
+
+    .project-content {
+        padding: 1.5rem;
+    }
+
+    .project-title {
+        font-size: 1.4rem;
+    }
+
+    .project-description {
+        font-size: 0.9rem;
+    }
+
+    .form-group label {
+        font-size: 0.9rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+        padding: 0.9rem;
+        font-size: 0.9rem;
+    }
+
+    .submit-btn {
+        padding: 0.9rem;
+    }
+
+    .social-link {
+        padding: 1rem;
+    }
+
+    .social-icon {
+        font-size: 1.4rem;
+        width: 35px;
+    }
+}

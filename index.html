@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abdalaziz Esam Portfolio</title>
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" as="style">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+<body>
+
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo-link">
+                <div class="logo">
+                    <img src="pics/profile_pic.jpg" alt="Abdalaziz Esam Profile Picture" class="profile-pic">
+                    Abdalaziz Esam
+                </div>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button id="themeToggleDesktop" class="theme-toggle theme-toggle-desktop"><i class="fas fa-moon"></i></button>
+            <button id="themeToggleMobile" class="theme-toggle theme-toggle-mobile"><i class="fas fa-moon"></i></button>
+            <div class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="floating-element floating-element-1"></div>
+        <div class="floating-element floating-element-2"></div>
+        
+        <div class="hero-content">
+            <h1 class="hero-title static-title">Hi, I'm Abdalaziz</h1>
+            <p class="hero-subtitle typing-text">Software Engineer, Front-End, Mobile Developer & Graphic Designer passionate about crafting innovative, user-centered digital solutions that blend functionality with visual impact.</p>
+        </div>
+        <a href="#projects" class="cta-button">Explore My Work</a> <a href="#about" class="scroll-down-indicator">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <section class="section fade-in" id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <p class="about-text">
+                I'm Abdalaziz Esam, a creative and detail-oriented Front-End & Mobile Developer based in Cairo, Egypt. I specialize in building responsive, user-centered applications using Flutter, React, Angular, and other modern technologies. With a strong foundation in both design and development, I’m passionate about turning ideas into smooth, interactive digital experiences.
+                I take pride in writing clean, maintainable code and constantly push myself to learn, adapt, and stay up to date with the latest tools, frameworks, and UI trends. Whether I’m working solo or collaborating with a team, I focus on delivering high-quality results that look great and work flawlessly across devices.
+                In addition to my work as a developer, I’m also an active content creator, producing tech-focused videos, tutorials, and creative media that aim to educate, inspire, and entertain. This blend of development and storytelling allows me to connect with a wider audience and bring a unique creative perspective to everything I build. 
+                When I’m not coding or creating content, you’ll find me exploring new design ideas, leveling up my editing skills, or diving into the next exciting challenge.
+            </p>
+        </div>
+    </section>
+
+    <section class="section fade-in" id="skills">
+        <h2 class="section-title">Skills & Technologies</h2>
+        <div class="skills-grid">
+            <div class="skill-card">
+                <i class="fab fa-angular skill-icon"></i> <h3 class="skill-name">Angular</h3>
+                <p class="skill-description">Building robust single-page applications.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-react skill-icon"></i>
+                <h3 class="skill-name">React.js</h3>
+                <p class="skill-description">Building dynamic and interactive user interfaces.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-code skill-icon"></i>
+                <h3 class="skill-name">TypeScript</h3> <p class="skill-description">Strongly typed JavaScript for scalable applications.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-java skill-icon"></i> <h3 class="skill-name">Java</h3>
+                <p class="skill-description">Backend development and Android applications.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-mobile-alt skill-icon"></i>
+                <h3 class="skill-name">Flutter & Dart</h3> <p class="skill-description">Cross-platform mobile app development.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fab fa-python skill-icon"></i> <h3 class="skill-name">Python</h3>
+                <p class="skill-description">Scripting, backend, and data processing.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-laptop-code skill-icon"></i> <h3 class="skill-name">C++</h3>
+                <p class="skill-description">Efficient system and application development.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-pen-nib skill-icon"></i> <h3 class="skill-name">Adobe XD</h3>
+                <p class="skill-description">UI/UX design and prototyping.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-video skill-icon"></i> <h3 class="skill-name">Premiere Pro</h3>
+                <p class="skill-description">Professional video editing and post-production.</p>
+            </div>
+            <div class="skill-card">
+                <i class="fas fa-image skill-icon"></i> <h3 class="skill-name">Photoshop & Lightroom</h3>
+                <p class="skill-description">Image manipulation and photo enhancement.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card" data-project="codehex">
+                <div class="project-image">
+                    <img src="pics/project1.jpg" alt="CodeHex">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">CodeHex</h3>
+                    <p class="project-description">
+                        CODEHEX is a competitive programming platform built with Angular that hosts coding contests and challenges. It features timed competitions, a problem archive, real-time submission evaluation, and user profiles with rankings. Designed for programmers to test and improve their skills in a structured, competitive environment.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Angular CLI</span>
+                        <span class="tech-tag">Firebase Auth</span>
+                        <span class="tech-tag">TypeScript</span>
+                        <span class="tech-tag">HTML</span>
+                        <span class="tech-tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/CodeHex" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://abdalazizesam.github.io/src/doc_codehex.pdf" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                            Documentation
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="codesynth">
+                <div class="project-image">
+                    <img src="pics/project2.jpg" alt="CodeSynth">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">CodeSynth</h3>
+                    <p class="project-description">
+                        CodeSynth is a real-time collaborative code editor with AI-powered code review capabilities. This application allows multiple developers to work on the same codebase simultaneously, with intelligent suggestions and best practice recommendations provided by integrated AI tools.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">React</span>
+                        <span class="tech-tag">Socket.IO</span>
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/CodeSynth" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card" data-project="reeldeal">
+                <div class="project-image">
+                    <img src="pics/project3.jpg" alt="ReelDeal">
+                </div>
+                <div class="project-content">
+                    <h3 class="project-title">ReelDeal</h3>
+                    <p class="project-description">
+                       ReelDeal is a modern Flutter app that makes choosing what to watch effortless. By combining your mood, genre preferences, and viewing history, it delivers personalized movie and TV recommendations. Beyond discovery, it also helps you organize and manage your entertainment library with ease.
+                    </p>
+                    <div class="project-tech">
+                        <span class="tech-tag">Flutter</span>
+                        <span class="tech-tag">Dart</span>
+                        <span class="tech-tag">TMDB API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/RealDeal" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-github"></i>
+                            GitHub
+                        </a>
+                        <a href="https://github.com/abdalazizesam/RealDeal/releases/download/v2.0.0/ReelDealv2.0.0.apk" class="project-link" target="_blank" rel="noopener noreferrer">
+                            <i class="fas fa-external-link-alt"></i>
+                            Download Link (Android)
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section fade-in" id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <form class="contact-form" id="contactForm" action="https://formspree.io/f/xovwkyqy" method="POST">
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="subject">Subject</label>
+                    <input type="text" id="subject" name="subject" required>
+                </div>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+                </div>
+                <button type="submit" class="submit-btn" name="submit">Send Message</button>
+            </form>
+
+            <div class="social-links">
+                <a href="mailto:abdalazizesam07@gamil.com" class="social-link">
+                    <i class="fas fa-envelope social-icon"></i>
+                    <div>
+                        <strong>Email</strong>
+                        <p>abdalazizesam07@gamil.com</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/abdalazizesam07" class="social-link" target="_blank" rel="linkedin">
+                    <i class="fab fa-linkedin social-icon"></i>
+                    <div>
+                        <strong>LinkedIn</strong>
+                        <p>Connect with me professionally</p>
+                    </div>
+                </a>
+                <a href="https://github.com/abdalazizesam" class="social-link" target="_blank" rel="github">
+                    <i class="fab fa-github social-icon"></i>
+                    <div>
+                        <strong>GitHub</strong>
+                        <p>Check out my repositories</p>
+                    </div>
+                </a>
+                <a href="https://www.instagram.com/a.esam07/" class="social-link" target="_blank" rel="instagram">
+                    <i class="fab fa-instagram social-icon"></i>
+                    <div>
+                        <strong>Instagram</strong>
+                        <p>Follow my creative journey</p>
+                    </div>
+                </a>
+                <a href="https://x.com/AbdalazizEsam2" class="social-link" target="_blank" rel="X">
+                    <i class="fab fa-x-twitter social-icon"></i>
+                    <div>
+                        <strong>X (Twitter)</strong>
+                        <p>Join me on X</p>
+                    </div>
+                </a>
+                <a href="https://www.youtube.com/@OkatoGO/" class="social-link" target="_blank" rel="Youtube">
+                    <i class="fab fa-youtube social-icon"></i>
+                    <div>
+                        <strong>Youtube</strong>
+                        <p>Follow me on Youtube</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="project-modal" id="projectModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">×</button>
+            <div id="modalContent">
+                </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+
+</body>
+</html>
