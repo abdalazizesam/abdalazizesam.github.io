@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<<<<<<< HEAD
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -277,3 +278,151 @@
 
 </body>
 </html>
+=======
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio of Abdalaziz Esam - Software Engineer, Web Developer & Graphic Designer">
+    <title>Abdalaziz Esam</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <!-- Custom Cursor Elements -->
+    <div class="cursor-dot"></div>
+    <div class="cursor-outline"></div>
+    
+    <nav>
+        <div class="logo">My Portfolio</div>
+        <div class="nav-links">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+            <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark/light mode">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+        <div class="mobile-menu-toggle" id="mobile-menu-toggle">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-menu-content">
+            <a href="#home">Home</a>
+            <a href="#projects">Projects</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </div>
+    
+    <!-- Hero Section -->
+    <header id="home">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span>Abdalaziz Esam</span></h1>
+                <p class="subtitle">Software Engineer, Web Developer & Graphic Designer passionate about crafting innovative, user-centered digital solutions that blend functionality with visual impact.</p>
+                <a href="#projects" class="cta-button">View My Work</a>
+            </div>
+            <div class="profile-picture">
+                <img src="pics/profile_pic.jpg" alt="Abdalaziz Esam">
+            </div>
+        </div>
+    </header>
+    
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>My Projects</h2>
+        
+        <div class="projects-container">
+            <!-- Project 1 -->
+            <div class="project">
+                <div class="project-image">
+                    <img src="pics/project1.jpg" alt="Project 1">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">CODEHEX</h3>
+                    <p class="project-description">CODEHEX is a competitive programming platform built with Angular that hosts coding contests and challenges. It features timed competitions, a problem archive, real-time submission evaluation, and user profiles with rankings. Designed for programmers to test and improve their skills in a structured, competitive environment.</p>
+                    <div class="project-tags">
+                        <span class="tag">Angular CLI</span>
+                        <span class="tag">TypeScript</span>
+                        <span class="tag">HTML</span>
+                        <span class="tag">CSS</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/CodeHex" target="_blank" class="project-link">Source Code</a>
+                        <a href="src/doc_codehex.pdf" target="_blank" class="project-link">Documentation</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project">
+                <div class="project-image">
+                    <img src="pics/project2.jpg" alt="Project 2">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">CodeSynth</h3>
+                    <p class="project-description">CodeSynth is a real-time collaborative code editor with AI-powered code review capabilities. This application allows multiple developers to work on the same codebase simultaneously, with intelligent suggestions and best practice recommendations provided by integrated AI tools.</p>
+                    <div class="project-tags">
+                        <span class="tag">React</span>
+                        <span class="tag">Socket.IO</span>
+                        <span class="tag">Node.js</span>
+                        <span class="tag">MongoDB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/CodeSynth" target="_blank" class="project-link">Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project 3 -->
+            <div class="project">
+                <div class="project-image">
+                    <img src="pics/project3.jpg" alt="Project 3">
+                </div>
+                <div class="project-info">
+                    <h3 class="project-title">ReelDeal</h3>
+                    <p class="project-description">ReelDeal is a Flutter app that solves the eternal question: "What should I watch tonight?" Whether you're feeling happy, thrilled, chill, or sad, ReelDeal finds the perfect movie or TV show matches for your current mood and genre preferences.</p>
+                    <div class="project-tags">
+                        <span class="tag">Flutter</span>
+                        <span class="tag">Dart</span>
+                        <span class="tag">TMDB API</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="https://github.com/abdalazizesam/RealDeal/releases/download/v1.4.0/ReelDealv1.4.0.apk" target="_blank" class="project-link">Download Link (Android)</a>
+                        <a href="https://github.com/abdalazizesam/RealDeal" target="_blank" class="project-link">Source Code</a>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+    
+    <footer id="contact">
+        <div class="social-links">
+            <a href="https://github.com/abdalazizesam" target="_blank" class="social-link" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abdalazizesam07" target="_blank" class="social-link" aria-label="LinkedIn">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a href="https://x.com/AbdalazizEsam2" target="_blank" class="social-link" aria-label="Twitter">
+                <i class="fa-brands fa-x-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/a.esam07/" target="_blank" class="social-link" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.youtube.com/@OkatoGO/" target="_blank" class="social-link" aria-label="Youtube">
+                <i class="fab fa-youtube"></i>
+            </a>
+        </div>
+        <p class="copyright">© 2025 Abdalaziz Esam. All rights reserved.</p>
+    </footer>
+    
+    <script src="js/main.js"></script>
+</body>
+</html>
+>>>>>>> c3d2cc386a95672f89ab869e44d8cada18f9c6c9

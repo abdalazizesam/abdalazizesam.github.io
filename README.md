@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Abdalaziz Esam – Front-End & Mobile Developer
 
 ## Portfolio Website
@@ -46,3 +47,6 @@ Let's build something amazing together!
 ## License
 
 This project is open-sourced under the [MIT License](LICENSE.md).
+=======
+# abdalazizesam.github.io
+>>>>>>> c3d2cc386a95672f89ab869e44d8cada18f9c6c9
