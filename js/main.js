@@ -176,6 +176,24 @@ const projectData = {
         github: "https://github.com/abdalazizesam/RealDeal",
         demo: "https://github.com/abdalazizesam/RealDeal/releases/download/v2.0.0/ReelDealv2.0.0.apk",
         demoType: "Download Link (Android)" // New property for custom text
+    },
+    "skillforge": {
+        title: "Skill Forge",
+        description: "SkillForge is an AI-powered web application that helps individuals advance their careers through personalized learning roadmaps, goal tracking, AI mock interviews, and detailed progress analytics.",
+        imageUrl: "pics/project4.jpg",
+        technologies: ["React", "TypeScript", "Lucide React", "Firebase", "Google Gemini API", "Vite"],
+        features: [
+            "Personalized learning roadmaps",
+            "Goal tracking",
+            "AI mock interviews",
+            "Detailed progress analytics",
+            "User authentication with Firebase",
+            "Integration with Google Gemini API for AI features",
+            "Responsive design"
+        ],
+        github: "https://github.com/abdalazizesam/skillforge",
+        demo: "https://skillforge-smoky.vercel.app/",
+        demoType: "Live Demo"
     }
 };
 
